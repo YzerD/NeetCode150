@@ -20,7 +20,7 @@ def containsDuplicate(nums: List[int]) -> bool:
             # Add it to the set
             nums_set.add(i)
 
-    # After iterating, if not dupes found, return false 
+    # After iterating, if no dupes found, elements are distinct
     return False
 
 nums_1 = [1,2,3,1] 
