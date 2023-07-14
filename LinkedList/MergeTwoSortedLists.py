@@ -90,7 +90,7 @@ def mergeTwoLists(list1: Optional[ListNode], list2: Optional[ListNode]) -> Optio
             # Set it to current.next and traverse further
             current.next = list2
             list2 = list2.next
-        # 
+        # Update current pointer
         current = current.next
     
     # Once we've exhausted one or both the list, append any remaining elements
