@@ -1,5 +1,6 @@
 # LC 101: Symmetric Tree
 # https://leetcode.com/problems/symmetric-tree/
+# Yzer De Gula
 
 from typing import List, Optional
 from collections import deque

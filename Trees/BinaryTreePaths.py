@@ -1,5 +1,6 @@
 # LC 257: Binary Tree Paths
 # https://leetcode.com/problems/binary-tree-paths/
+# Yzer De Gula
 
 from typing import List, Optional
 from collections import deque
