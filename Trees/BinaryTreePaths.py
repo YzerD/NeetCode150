@@ -32,10 +32,24 @@ M-atch:
     For this problem I think we can use a Pre-Order Traversal since we
     want to see every root-to-leaf path, so we'd like to traverse as
     far down as possible first and then check the right subtree path
-    if it exist. 
+    if it exist. We can first declare a result and then declare our
+    dfs helper function. This will take a node and the current path
+    which will be passed an empty string by the outer function and the
+    node will be the root. We'll first check if the node doesn't exist,
+    if it doesn't, we'd return null. Then we'll check if the node is a
+    leaf node, if it is we'll append that value to the current path string
+    and append that path to the result list. Then we can recusrively call
+    the helper function onto the left and right subtrees. Back in the outer
+    function we can call the helper function and return the results list.
 
 P-lan:
-
+    1) Declare our result list
+    2) Declare our helper function
+    3) Check if the node is null, if so, return null
+    4) Check if node is a leaf, if so, append the current path to the result
+    5) Recursively call the function on the left and right subtrees
+    6) Call the helper function 
+    7) Return result list
 
 I-mplement:
 """
