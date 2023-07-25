@@ -82,6 +82,29 @@ class Solution:
 
         # Return the k - 1th element of the result list 
         return result[k - 1]
+    
+
+    def kthSmallestV2(self, root:Optional[TreeNode], k: int) -> int:
+        # Declare our helper function
+        def dfs(node):
+            # If the tree is empty, return an empty list
+            if not node:
+                return []
+            
+            # Declare our result list
+            result = []
+
+            # In-Order Traversal goes left subtree, root, then right subtree
+            result.extend(dfs(node.left))
+            result.append(node.val)
+            result.extend(dfs(node.right))
+
+            # Return the result list
+            return result
+        
+        # Return the call of the helper function with the root passed in
+        # and return the k-1 value
+        return dfs(root)[k - 1]
 
 
     def printLevelOrder(self, root: Optional[TreeNode]) -> List[int]:
@@ -104,6 +127,19 @@ class Solution:
         
         return result
     
+    
+    def printInOrder(self, root: Optional[TreeNode]) -> List[int]:
+        if not root:
+            return []
+        
+        result = []
+
+        result.extend(self.printInOrder(root.left))
+        result.append(root.val)
+        result.extend(self.printInOrder(root.right))
+
+        return result
+    
 # Testing 
 solution = Solution()
 
@@ -113,8 +149,10 @@ node2 = TreeNode(1, None, node1)
 node3 = TreeNode(4)
 tree1 = TreeNode(3, node2, node3)
 k = 1
-print(f"Input:  {solution.printLevelOrder(tree1)}, k = {k}")
-print(f"Output: {solution.kthSmallest(tree1, k)}")
+print(f"Input:    {solution.printLevelOrder(tree1)}, k = {k}")
+print(f"In-Order: {solution.printInOrder(tree1)}")
+print(f"Output:   {solution.kthSmallestV2(tree1, k)} (In-Order)")
+print(f"Output:   {solution.kthSmallest(tree1, k)} (Level-Order)\n")
 
 
 # Expects 3
@@ -125,9 +163,10 @@ node4 = TreeNode(3, node2, node3)
 node5 = TreeNode(6)
 tree1 = TreeNode(5, node4, node5)
 k = 3
-print(f"Input:  {solution.printLevelOrder(tree1)}, k = {k}")
-print(f"Output: {solution.kthSmallest(tree1, k)}")
-
+print(f"Input:    {solution.printLevelOrder(tree1)}, k = {k}")
+print(f"In-Order: {solution.printInOrder(tree1)}")
+print(f"Output:   {solution.kthSmallestV2(tree1, k)} (In-Order)")
+print(f"Output:   {solution.kthSmallest(tree1, k)} (Level-Order)")
 
 """
 R-eview:
@@ -135,10 +174,19 @@ R-eview:
       solution.
     - I just modified the printLevelOrder function I've been using for most
       of the tree problems. 
+    - While watching the NeetCode solution for a more opimized solution
+      Since we know the structure of a BST and that in an In-Order traversal,
+      the elements are sorted already. We can reduce the O(nlog(n)) Run Time
+      to just O(n). 
+    - NeetCode used an iterative implementation, while I did a recusrive one
 
 E-valuate:
     - The Time Complexity is O(nlog(n)) since the highest order in our
       algorithm is the sorting, which is nlog(n)
     - The Space Complexity is O(n) since we put all the nodes of the tree
       into the result list and queue
+    - The Level-Order Traversal solution beat 64.45% in Runtime, and only
+      51.14% in Memory
+    - However, the In-Order solution had the same 64.45% Runtime, but beat
+      97.84% in Memory!
 """
