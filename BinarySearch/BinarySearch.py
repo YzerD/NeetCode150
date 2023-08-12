@@ -1,5 +1,8 @@
 # LC 704: Binary Search (Easy)
 # https://leetcode.com/problems/binary-search/
+# Yzer De Gula
+
+from typing import List
 
 """
 Question:
