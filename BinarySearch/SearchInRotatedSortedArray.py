@@ -122,7 +122,8 @@ class Solution:
 
     def display(self, nums: List[int], target: int) -> None:
         print(f"Input: nums = {nums}, target = {target}")
-        print(f"Output: {self.search(nums, target)}\n")
+        print(f"Output: {self.search(nums, target)}")
+        print(f"Output: {self.searchNeetCode(nums, target)}\n")
 
 
 # Test Cases
