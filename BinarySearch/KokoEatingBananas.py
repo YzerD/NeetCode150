@@ -43,29 +43,29 @@ M-atch:
 
 P-lan:
     Brute Force:
-    1) Get max pile
-    2) Iterate from 1 to max pile
-    3) Declare total time
-    4) Iterate through piles
-    5) Add time to total time
-    6) If total time is less than or equal to h,
-    7) return k
-    8) If total time is greater than h, return max pile
+        1) Get max pile
+        2) Iterate from 1 to max pile
+        3) Declare total time
+        4) Iterate through piles
+        5) Add time to total time
+        6) If total time is less than or equal to h,
+        7) return k
+        8) If total time is greater than h, return max pile
 
     Binary Search:
-    1) Delcare our two pointers
-    2) Declare our result variable
-    3) While our two pointers havent crossed
-    4) Calculate our mid (eating speed)
-    5) Declare our total time
-    6) Iterate through piles
-    7) Add time to total time
-    8) If total time is less than or equal to h,
-    9) Take the min of our result and k
-    10) Update our right pointer
-    11) Otherwise, we know that k is too small
-    12) Update our left pointer
-    13) Return our result
+        1) Delcare our two pointers
+        2) Declare our result variable
+        3) While our two pointers havent crossed
+        4) Calculate our mid (eating speed)
+        5) Declare our total time
+        6) Iterate through piles
+        7) Add time to total time
+        8) If total time is less than or equal to h,
+        9) Take the min of our result and k
+        10) Update our right pointer
+        11) Otherwise, we know that k is too small
+        12) Update our left pointer
+        13) Return our result
 
 I-mplement:
 """
