@@ -76,6 +76,26 @@ class Solution:
         else:
             # Return the node's value
             return root.val
+        
+
+    def lowestCommonAncestorLC(self, root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode:
+        # Set a variable to the root node
+        curr = root
+
+        # While there is still something in our tree
+        while curr:
+            # Check if root is greater than both p and q
+            if (curr.val > p.val) and (curr.val > q.val):
+                # Set the current node to the left child
+                curr = curr.left
+            # Check if root is lesser than both p and q
+            elif (curr.val < p.val) and (curr.val < q.val):
+                # Set the current node to the right child
+                curr = curr.right
+            # Otherwise, we're at the LCA
+            else:
+                # Return the node's value
+                return curr
 
     
     def printLevelOrder(self, root: Optional[TreeNode]) -> List[int]:
@@ -115,7 +135,8 @@ q = TreeNode(8)
 
 # Expects 6
 print("Input:  ", solution.printLevelOrder(tree1))
-print("Output: ", solution.lowestCommonAncestor(tree1, p, q), "\n")
+print("Output: ", solution.lowestCommonAncestor(tree1, p, q))
+
 
 # Expects 2
 p = TreeNode(2)
